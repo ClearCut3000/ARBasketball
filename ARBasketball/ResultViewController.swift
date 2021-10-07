@@ -10,7 +10,7 @@ import UIKit
 class ResultViewController: UIViewController {
   @IBOutlet weak var resultLabel: UILabel!
 
-  let result: Int
+  private let result: Int
 
   init?(coder: NSCoder,_ result: Int){
     self.result = result
