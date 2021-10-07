@@ -17,14 +17,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 
   // MARK: - Properties
   let configuration = ARWorldTrackingConfiguration()
-  var score = 0 {
+  private var score = 0 {
     didSet{
       DispatchQueue.main.async {
         self.scoreLabel.text = "SCORE: \(self.score)"
       }
     }
   }
-  var ballsLeft = 10 {
+ private  var ballsLeft = 10 {
     didSet{
       if ballsLeft <= 0 {
         DispatchQueue.main.async { self.performSegue(withIdentifier: "Result Segue", sender: nil) }
@@ -34,7 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
       DispatchQueue.main.async { self.ballsLeftLabel.text = "\(self.ballsLeft)/10" }
     }
   }
-  var isHoopAdded = false {
+ private var isHoopAdded = false {
     didSet {
       configuration.planeDetection = []
       sceneView.session.run(configuration, options: .removeExistingAnchors)
@@ -75,7 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
   }
   //MARK: - Methods
 
-  func getBall() -> SCNNode? {
+ private func getBall() -> SCNNode? {
     // Get current frame
     guard let frame = sceneView.session.currentFrame else { return nil }
 
@@ -111,7 +111,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     return ballNode
   }
 
-  func getCounter() -> SCNNode{
+  private func getCounter() -> SCNNode{
     // Add counter Node
     let scene = SCNScene(named: "Hoop.scn", inDirectory: "art.scnassets")!
     let counterNode = scene.rootNode.childNode(withName: "counter", recursively: false)!
@@ -125,7 +125,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     return counterNode
   }
 
-  func getHoopNode() -> SCNNode{
+  private func getHoopNode() -> SCNNode{
     let scene = SCNScene(named: "Hoop.scn", inDirectory: "art.scnassets")!
     let hoopNode = scene.rootNode.childNode(withName: "board", recursively: false)!
     // Add physics nodes
@@ -138,7 +138,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     return hoopNode
   }
 
-  func getPlane(for anchor: ARPlaneAnchor) -> SCNNode{
+  private func getPlane(for anchor: ARPlaneAnchor) -> SCNNode{
     let extent = anchor.extent
     let plane = SCNPlane(width: CGFloat(extent.x), height: CGFloat(extent.z))
     plane.firstMaterial?.diffuse.contents = UIImage(named: "tracker.png")
@@ -150,7 +150,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     return planeNode
   }
 
-  func updatePlaneNode(_ node: SCNNode, for anchor: ARPlaneAnchor){
+  private func updatePlaneNode(_ node: SCNNode, for anchor: ARPlaneAnchor){
     guard let planeNode = node.childNodes.first, let plane = planeNode.geometry as? SCNPlane else { return }
 
     //Change plane node to center
