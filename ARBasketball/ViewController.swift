@@ -16,7 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
   @IBOutlet weak var ballsLeftLabel: UILabel!
 
   // MARK: - Properties
-  let configuration = ARWorldTrackingConfiguration()
+  private let configuration = ARWorldTrackingConfiguration()
   private var score = 0 {
     didSet{
       DispatchQueue.main.async {
@@ -24,7 +24,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
       }
     }
   }
- private  var ballsLeft = 10 {
+  private  var ballsLeft = 10 {
     didSet{
       if ballsLeft <= 0 {
         DispatchQueue.main.async { self.performSegue(withIdentifier: "Result Segue", sender: nil) }
@@ -34,7 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
       DispatchQueue.main.async { self.ballsLeftLabel.text = "\(self.ballsLeft)/10" }
     }
   }
- private var isHoopAdded = false {
+  private var isHoopAdded = false {
     didSet {
       configuration.planeDetection = []
       sceneView.session.run(configuration, options: .removeExistingAnchors)
@@ -75,7 +75,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
   }
   //MARK: - Methods
 
- private func getBall() -> SCNNode? {
+  private func getBall() -> SCNNode? {
     // Get current frame
     guard let frame = sceneView.session.currentFrame else { return nil }
 
