@@ -14,6 +14,7 @@ The balls that hit the basket will explode.
 
 ![Screenshot](https://github.com/ClearCut3000/ARBasketball/blob/main/Screenshots/scr004.PNG?raw=true)
 
+There are also 2 buttons on the screen to complicate the game.
 After 10 throws, a screen with the results appears, the score counter and balls are reset to zero.
 
 ![Screenshot](https://github.com/ClearCut3000/ARBasketball/blob/main/Screenshots/scr005.PNG?raw=true)
