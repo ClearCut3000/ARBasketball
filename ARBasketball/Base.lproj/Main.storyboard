@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,13 +42,41 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tBa-Am-AMo">
+                                <rect key="frame" x="16" y="114" width="382" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULl-HN-XrY" userLabel="Twist">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="31"/>
+                                        <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Twist"/>
+                                        <connections>
+                                            <action selector="twistButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="FUK-np-JSU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eky-zo-Ghi" userLabel="Shake">
+                                        <rect key="frame" x="195" y="0.0" width="187" height="31"/>
+                                        <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Shake"/>
+                                        <connections>
+                                            <action selector="shakeButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="DhE-pj-Gwh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="x82-I0-wOh" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="4WS-bx-4WG"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
+                            <constraint firstItem="tBa-Am-AMo" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="HFZ-Do-9AR"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="tBa-Am-AMo" secondAttribute="trailing" constant="16" id="V8J-1O-1UY"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
+                            <constraint firstItem="tBa-Am-AMo" firstAttribute="top" secondItem="x82-I0-wOh" secondAttribute="bottom" constant="8" id="WOQ-Ht-A2f"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="x82-I0-wOh" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="oIa-7W-aLM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
@@ -57,6 +86,8 @@
                         <outlet property="ballsLeftLabel" destination="v7G-dG-36q" id="TjA-L2-kJT"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="scoreLabel" destination="7F5-WE-12w" id="b1N-ci-bqe"/>
+                        <outlet property="shakeButton" destination="eky-zo-Ghi" id="VsV-hB-ZOg"/>
+                        <outlet property="twistButton" destination="ULl-HN-XrY" id="OlA-Pa-guN"/>
                         <segue destination="vTd-bu-k2x" kind="show" identifier="Result Segue" destinationCreationSelector="resultSegue:" id="LbW-Qa-ta5"/>
                     </connections>
                 </viewController>
@@ -119,6 +150,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

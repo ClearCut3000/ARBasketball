@@ -14,8 +14,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
   @IBOutlet var sceneView: ARSCNView!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var ballsLeftLabel: UILabel!
+  @IBOutlet weak var shakeButton: UIButton!
+  @IBOutlet weak var twistButton: UIButton!
 
   // MARK: - Properties
+  private var currentNode: SCNNode!
   private let configuration = ARWorldTrackingConfiguration()
   private var score = 0 {
     didSet{
@@ -117,7 +120,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     let counterNode = scene.rootNode.childNode(withName: "counter", recursively: false)!
 
     // Add counter Node phisics
-    counterNode.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+    counterNode.physicsBody = SCNPhysicsBody(type: .kinematic, shape: nil)
     counterNode.opacity = 0
     counterNode.physicsBody?.categoryBitMask = 1
     counterNode.physicsBody?.contactTestBitMask = 0
@@ -161,6 +164,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     plane.height = CGFloat(extent.z)
     plane.width = CGFloat(extent.x)
 
+  }
+
+  private func shake(_ node: SCNNode){
+    // Move function
+    let leftMove = SCNAction.move(by: SCNVector3(x: -1, y: 0, z: 0), duration: 3)
+    let rightMove = SCNAction.move(by: SCNVector3(x: 1, y: 0, z: 0), duration: 3)
+    let actionSequence = SCNAction.sequence([leftMove, rightMove])
+    node.runAction(SCNAction.repeat(actionSequence, count: 3))
+  }
+  private func twist(_ node: SCNNode){
+    // Move function
+    let upLeftMove = SCNAction.move(by: SCNVector3(x: 1, y: 1, z: 0), duration: 3)
+    let downRightMove = SCNAction.move(by: SCNVector3(x: 1, y: -1, z: 0), duration: 3)
+    let downLeftMove = SCNAction.move(by: SCNVector3(x: -1, y: -1, z: 0), duration: 3)
+    let upRightMove = SCNAction.move(by: SCNVector3(x: -1, y: 1, z: 0), duration: 3)
+    let actionSequence = SCNAction.sequence([upLeftMove, downRightMove, downLeftMove, upRightMove])
+    node.runAction(SCNAction.repeat(actionSequence, count: 3))
   }
 
   // MARK: - ARSCNViewDelegate
@@ -211,11 +231,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
       let counterNode = getCounter()
       sceneView.scene.rootNode.addChildNode(hoopNode)
       hoopNode.addChildNode(counterNode)
+      currentNode = hoopNode
       isHoopAdded = true
     }
   }
+
   @IBSegueAction func resultSegue(_ coder: NSCoder) -> ResultViewController? {
     return ResultViewController(coder: coder, score)
   }
+  @IBAction func shakeButtonPressed(_ sender: UIButton) {
+     shake(currentNode)
+   }
+
+   @IBAction func twistButton(_ sender: UIButton) {
+     twist(currentNode)
+   }
   @IBAction func unwind (_ seque: UIStoryboardSegue){ }
 }
