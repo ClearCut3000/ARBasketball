@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		362737E7270DA269002FE2EA /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362737E6270DA269002FE2EA /* ResultViewController.swift */; };
 		36353011270F9E7000DF43D2 /* Screenshots in Resources */ = {isa = PBXBuildFile; fileRef = 36353010270F9E7000DF43D2 /* Screenshots */; };
+		36D7911E272019F6007F74EE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D7911D272019F6007F74EE /* art.scnassets */; };
 		36DA9C1E2704DBDA008DA6EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA9C1D2704DBDA008DA6EB /* AppDelegate.swift */; };
-		36DA9C202704DBDA008DA6EB /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DA9C1F2704DBDA008DA6EB /* art.scnassets */; };
 		36DA9C222704DBDA008DA6EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DA9C212704DBDA008DA6EB /* ViewController.swift */; };
 		36DA9C252704DBDA008DA6EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DA9C232704DBDA008DA6EB /* Main.storyboard */; };
 		36DA9C272704DBE0008DA6EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DA9C262704DBE0008DA6EB /* Assets.xcassets */; };
@@ -21,9 +21,9 @@
 		362737E6270DA269002FE2EA /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		36353010270F9E7000DF43D2 /* Screenshots */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Screenshots; sourceTree = SOURCE_ROOT; };
 		36CC3D832704F7F50002EBC4 /* ARBasketball.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARBasketball.entitlements; sourceTree = "<group>"; };
+		36D7911D272019F6007F74EE /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		36DA9C1A2704DBDA008DA6EB /* ARBasketball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARBasketball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DA9C1D2704DBDA008DA6EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36DA9C1F2704DBDA008DA6EB /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art.scnassets; path = /Users/niknik/Desktop/ARBasketball/ARBasketball/art.scnassets; sourceTree = "<absolute>"; };
 		36DA9C212704DBDA008DA6EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36DA9C242704DBDA008DA6EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36DA9C262704DBE0008DA6EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,9 +60,9 @@
 		36DA9C1C2704DBDA008DA6EB /* ARBasketball */ = {
 			isa = PBXGroup;
 			children = (
+				36D7911D272019F6007F74EE /* art.scnassets */,
 				36CC3D832704F7F50002EBC4 /* ARBasketball.entitlements */,
 				36DA9C1D2704DBDA008DA6EB /* AppDelegate.swift */,
-				36DA9C1F2704DBDA008DA6EB /* art.scnassets */,
 				36DA9C212704DBDA008DA6EB /* ViewController.swift */,
 				362737E6270DA269002FE2EA /* ResultViewController.swift */,
 				36DA9C232704DBDA008DA6EB /* Main.storyboard */,
@@ -131,8 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36DA9C202704DBDA008DA6EB /* art.scnassets in Resources */,
 				36DA9C2A2704DBE0008DA6EB /* LaunchScreen.storyboard in Resources */,
+				36D7911E272019F6007F74EE /* art.scnassets in Resources */,
 				36DA9C272704DBE0008DA6EB /* Assets.xcassets in Resources */,
 				36DA9C252704DBDA008DA6EB /* Main.storyboard in Resources */,
 				36353011270F9E7000DF43D2 /* Screenshots in Resources */,
